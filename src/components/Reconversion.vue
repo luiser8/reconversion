@@ -116,7 +116,7 @@
             </div>
           </div>
 				<div class="p-2 flex flex-wrap content-evenly space-x-2" v-for="(item, index) in cono" :key="index">
-					<button @click="convertCono(item)" class="text-black font-semibold bg-gray-300 border-0 py-1 px-1 focus:outline-none rounded hover:bg-gray-600 text-lg">{{item.bss}}</button>
+					<button @click="convertCono(item)" class="text-black hover:text-white font-semibold bg-gray-300 border-0 py-1 px-1 focus:outline-none rounded hover:bg-gray-600 text-lg">{{item.bss}}</button>
 				</div>
 
           <div class="p-2 w-full">
