@@ -208,7 +208,9 @@ export default {
       return result;
     },
     obtenerdecimales(decimales) {
-      if (decimales == "98") {
+		let decimalType = parseInt(decimales);
+		return decimalType + 1;
+      /*if (decimales == "98") {
         decimales = "99";
       }
       if (decimales == "97") {
@@ -505,7 +507,7 @@ export default {
       if (decimales == "00") {
         decimales = "01";
       }
-      return decimales;
+      return decimales;*/
     },
     Numeros(string) {
       var out = "";
