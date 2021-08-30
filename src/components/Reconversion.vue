@@ -1,6 +1,6 @@
 <template>
   <section class="text-gray-600 body-font relative">
-    <div class="container px-5 py-24 mx-auto">
+    <div class="container px-5 py-16 mx-auto">
       <div class="lg:w-1/3 md:w-3/3 sm:w-2/3 mx-auto">
         <div class="flex flex-wrap -m-2 bg-gray-50 p-6 rounded">
           <div class="flex flex-col text-center w-full mb-6">
@@ -115,9 +115,10 @@
               </div>
             </div>
           </div>
-          <div class="p-2 w-full">
-            <div class="relative"></div>
-          </div>
+				<div class="p-2 flex flex-wrap content-evenly space-x-2" v-for="(item, index) in cono" :key="index">
+					<button @click="convertCono(item)" class="text-black font-semibold bg-gray-300 border-0 py-1 px-1 focus:outline-none rounded hover:bg-gray-600 text-lg">{{item.bss}}</button>
+				</div>
+
           <div class="p-2 w-full">
             <button
               @click="convert()"
@@ -127,7 +128,8 @@
                 text-white
                 bg-gray-500
                 border-0
-                py-2
+                pt-1
+				pb-2
                 px-8
                 focus:outline-none
                 hover:bg-gray-600
@@ -148,6 +150,7 @@
 </template>
 
 <script>
+import json from "../assets/cono.json";
 export default {
   name: "Reconversion",
   props: {
@@ -155,12 +158,17 @@ export default {
   },
   data() {
     return {
+      cono: json,
       year: new Date().getFullYear(),
       bsF: "",
       bsS: "0,00",
     };
   },
   methods: {
+	convertCono(item){
+		this.bsF = item.bsf;
+		this.bsS = item.bss;
+	},
     convert() {
       var bsf1 = this.bsF.replace(/\./g, "");
       var bsf2 = bsf1.replace(/,/g, ".");
