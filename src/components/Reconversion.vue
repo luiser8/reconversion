@@ -2,7 +2,7 @@
   <section class="text-gray-600 body-font relative">
     <div class="container px-5 py-16 mx-auto">
       <div class="lg:w-1/3 md:w-3/3 sm:w-2/3 mx-auto">
-        <div class="flex flex-wrap -m-2 bg-gray-50 p-4 sm:p2 xs:p-2 rounded">
+        <div class="flex flex-wrap -m-2 bg-gray-50 p-0 sm:p2 xs:p-2 rounded">
           <div class="flex flex-col text-center w-full mb-6">
             <h1
               class="sm:text-3xl text-2xl font-medium title-font text-gray-900"
@@ -39,7 +39,7 @@
                   autofocus
                   name="bsf"
                   v-model="bsF"
-                  placeholder="0,00"
+                  placeholder="0"
                   class="
                     text-3xl
                     w-full
@@ -161,7 +161,7 @@ export default {
       cono: json,
       year: new Date().getFullYear(),
       bsF: "",
-      bsS: "0,00",
+      bsS: "0",
     };
   },
   methods: {
@@ -172,51 +172,11 @@ export default {
     convert() {
       var bsf1 = this.bsF.replace(/\./g, "");
       var bsf2 = bsf1.replace(/,/g, ".");
-      var bss = this.roundDecimal(bsf2 / 100000);
+      var bss = bsf2 / 1000000;
       var bss1 = bss.toString();
       var bss2 = bss1.replace(/\./g, ",");
       this.bsS = this.numberFormat(bss2);
-    },
-    roundDecimal(numero) {
-      var original = parseFloat(numero);
-      var prueba = original.toString().split(".");
-      var bol_s = 0;
-      var len = prueba.length;
-      var dec_final = "";
-
-      if (len == 2) {
-        var prueba1 = prueba[1];
-        var decimales = "";
-        var len1 = prueba[1].length;
-      }
-
-      if (len1 >= 3) {
-        for (var i = 0; i < 2; i++) {
-          if (i != 2) decimales += prueba1.charAt(i);
-          if (i == 2)
-            if ((prueba1[2] != 0) & (prueba1[2] != "")) {
-              dec_final = this.obtenerdecimales(decimales);
-            }
-          bol_s = prueba[0] + "." + dec_final;
-        }
-      } else {
-        bol_s = original;
-      }
-
-      var result = Math.round(parseFloat(bol_s) * 100) / 100;
-      result = result.toFixed(2);
-      return result;
-    },
-    obtenerdecimales(decimales) {
-		let decimalType = parseInt(decimales);
-		return decimalType + 1;
-    },
-    Numeros(string) {
-      var out = "";
-      var filtro = "1234567890,";
-      for (var i = 0; i < string.length; i++)
-        if (filtro.indexOf(string.charAt(i)) != -1) out += string.charAt(i);
-      return out;
+      this.bsS = Number.parseFloat(bss);
     },
     numberFormat(numero) {
       var resultado = "";
@@ -230,7 +190,7 @@ export default {
       if (numero.indexOf(",") >= 0) {
         resultado += numero.substring(numero.indexOf(","));
       }
-      return resultado;
+      return resultado; 
     },
   },
 };
