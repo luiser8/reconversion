@@ -68,7 +68,7 @@
               <label
                 for="bss"
                 class="leading-7 text-lg text-gray-800 font-medium"
-                >Bolivar Soberano</label
+                >Bolivar Digital</label
               >
               <div class="mt-1 flex rounded-md shadow-sm">
                 <span
@@ -83,14 +83,14 @@
                     border border-r-0 border-gray-300
                     bg-gray-200
                   "
-                  >BsS:</span
+                  >BsD:</span
                 >
                 <input
                   type="text"
-                  id="bss"
-                  name="bss"
+                  id="bsd"
+                  name="bsd"
                   readonly
-                  v-model="bsS"
+                  v-model="bsD"
                   class="
                     text-3xl
                     w-full
@@ -116,7 +116,7 @@
             </div>
           </div>
 				<div class="p-2 flex flex-wrap content-evenly space-x-2" v-for="(item, index) in cono" :key="index">
-					<button @click="convertCono(item)" class="text-black hover:text-white font-semibold bg-gray-300 border-0 py-1 px-1 focus:outline-none rounded hover:bg-gray-600 text-lg">{{item.bss}}</button>
+					<button @click="convertCono(item)" class="text-black hover:text-white font-semibold bg-gray-300 border-0 py-1 px-1 focus:outline-none rounded hover:bg-gray-600 text-lg">{{item.bsd}}</button>
 				</div>
 
           <div class="p-2 w-full">
@@ -161,22 +161,22 @@ export default {
       cono: json,
       year: new Date().getFullYear(),
       bsF: "",
-      bsS: "0",
+      bsD: "0",
     };
   },
   methods: {
 	convertCono(item){
 		this.bsF = item.bsf;
-		this.bsS = item.bss;
+		this.bsD = item.bsd;
 	},
     convert() {
       var bsf1 = this.bsF.replace(/\./g, "");
       var bsf2 = bsf1.replace(/,/g, ".");
-      var bss = bsf2 / 1000000;
-      var bss1 = bss.toString();
-      var bss2 = bss1.replace(/\./g, ",");
-      this.bsS = this.numberFormat(bss2);
-      this.bsS = Number.parseFloat(bss);
+      var bsd = bsf2 / 1000000;
+      var bsd1 = bsd.toString();
+      var bsd2 = bsd1.replace(/\./g, ",");
+      this.bsD = this.numberFormat(bsd2);
+      this.bsD = Number.parseFloat(bsd);
     },
     numberFormat(numero) {
       var resultado = "";
