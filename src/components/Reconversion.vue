@@ -129,7 +129,7 @@
                 bg-gray-500
                 border-0
                 pt-1
-				pb-2
+				        pb-2
                 px-8
                 focus:outline-none
                 hover:bg-gray-600
