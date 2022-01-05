@@ -48,7 +48,8 @@
                     border border-gray-300
                     focus:border-indigo-500
                     focus:bg-white
-                    focus:ring-2 focus:ring-indigo-200
+                    focus:ring-2
+                    focus:ring-indigo-200
                     text-base
                     outline-none
                     text-gray-700
@@ -100,7 +101,8 @@
                     border border-gray-300
                     focus:border-indigo-500
                     focus:bg-white
-                    focus:ring-2 focus:ring-indigo-200
+                    focus:ring-2
+                    focus:ring-indigo-200
                     text-base
                     outline-none
                     text-gray-700
@@ -115,9 +117,30 @@
               </div>
             </div>
           </div>
-				<div class="p-2 flex flex-wrap content-evenly space-x-2" v-for="(item, index) in cono" :key="index">
-					<button @click="convertCono(item)" class="text-black hover:text-white font-semibold bg-gray-300 border-0 py-1 px-1 focus:outline-none rounded hover:bg-gray-600 text-lg">{{item.bsd}}</button>
-				</div>
+          <div
+            class="p-2 flex flex-wrap content-evenly space-x-2"
+            v-for="(item, index) in cono"
+            :key="index"
+          >
+            <button
+              @click="convertCono(item)"
+              class="
+                text-black
+                hover:text-white
+                font-semibold
+                bg-gray-300
+                border-0
+                py-1
+                px-1
+                focus:outline-none
+                rounded
+                hover:bg-gray-600
+                text-lg
+              "
+            >
+              {{ item.bsd }}
+            </button>
+          </div>
 
           <div class="p-2 w-full">
             <button
@@ -129,7 +152,7 @@
                 bg-gray-500
                 border-0
                 pt-1
-				        pb-2
+                pb-2
                 px-8
                 focus:outline-none
                 hover:bg-gray-600
@@ -165,10 +188,10 @@ export default {
     };
   },
   methods: {
-	convertCono(item){
-		this.bsF = item.bsf;
-		this.bsD = item.bsd;
-	},
+    convertCono(item) {
+      this.bsF = item.bsf;
+      this.bsD = item.bsd;
+    },
     convert() {
       var bsf1 = this.bsF.replace(/\./g, "");
       var bsf2 = bsf1.replace(/,/g, ".");
@@ -190,7 +213,7 @@ export default {
       if (numero.indexOf(",") >= 0) {
         resultado += numero.substring(numero.indexOf(","));
       }
-      return resultado; 
+      return resultado;
     },
   },
 };
