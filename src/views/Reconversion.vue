@@ -41,7 +41,6 @@
                   v-model="bsF"
                   placeholder="0"
                   class="
-                    text-3xl
                     w-full
                     bg-white-200 bg-opacity-50
                     rounded
@@ -93,7 +92,6 @@
                   readonly
                   v-model="bsD"
                   class="
-                    text-3xl
                     w-full
                     font-bold
                     bg-gray-200 bg-opacity-50

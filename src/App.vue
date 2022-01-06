@@ -1,13 +1,22 @@
 <template>
-  <Reconversion />
+  <Nav />
+  <Header />
+  <Home />
+  <!-- <Reconversion /> -->
 </template>
 
 <script>
-import Reconversion from './components/Reconversion.vue';
+import Nav from './components/Nav.vue';
+import Header from './components/Header.vue';
+// import Reconversion from './views/Reconversion.vue';
+import Home from './views/Home.vue';
 export default {
   name: 'App',
   components: {
-    Reconversion,
+    // Reconversion,
+    Nav,
+    Header,
+    Home,
   }
 }
 </script>
